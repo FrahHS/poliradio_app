@@ -1,8 +1,6 @@
-import 'dart:developer';
-import 'dart:ffi';
-
 import 'package:flutter/material.dart';
 import 'package:bitsdojo_window/bitsdojo_window.dart';
+import 'package:poliradio_app/managers/poliradio_app_icons_icons.dart';
 
 class TitleBarWidget extends StatefulWidget {
   const TitleBarWidget({super.key});
@@ -40,21 +38,21 @@ class TitlebarButtonsState extends State<TitlebarButtons> {
       children: [
         // Minimize button
         TitlebarButton(
-          icon: Icons.minimize,
+          icon: PoliradioAppIcons.minimize,
           iconColor: Colors.white,
           hoverColor: const Color(0xFF555555),
           callback: appWindow.minimize,
         ),
         // Maximize/restore button
         TitlebarButton(
-          icon: Icons.crop_5_4,
+          icon: PoliradioAppIcons.maximize,
           iconColor: Colors.white,
           hoverColor: const Color(0xFF555555),
           callback: appWindow.maximizeOrRestore,
         ),
         // Close button
         TitlebarButton(
-          icon: Icons.close,
+          icon: PoliradioAppIcons.close,
           iconColor: Colors.white,
           hoverColor: Colors.red,
           callback: appWindow.close,
@@ -110,6 +108,7 @@ class TitlebarButtonState extends State<TitlebarButton> {
       onEnter: incrementEnter,
       onExit: incrementExit,
       child: Container(
+        alignment: Alignment.center,
         color: setColor(),
         child: InkWell(
           onTap: widget.callback,
@@ -117,7 +116,7 @@ class TitlebarButtonState extends State<TitlebarButton> {
             padding: const EdgeInsets.all(8.0),
             child: Center(
               child: Icon(
-                size: 20,
+                size: 15,
                 widget.icon,
                 color: widget.iconColor,
               ),
